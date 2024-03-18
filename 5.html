@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zadanie 5</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="main">
+        <h1>Zadanie 5.</h1>
+        <h2>zgadnij liczbe od 0 do 100</h2>
+        <input type="number" id="n">
+        <button onclick="sprawdz()">sprawdz</button>
+        <p id="xd"></p>
+          <p id="sprawdzanie"><br></p>
+          <p id="proby">Ilość prób: </p>
+          <table>
+            <tr>
+                <th><div id="zgadnieciamniejsze"></div></th>
+                <th><div id="zgadniecie">&lt; ? &lt;</div></th>
+                <th><div id="zgadnieciawieksze"></div></th>
+            </tr>
+          </table>
+          <p id="wygrane">ilość wygranych: </p>
+          <button onclick="reset()">Zresetuj</button>
+          <a href="index.html">
+            <button id="powrot">
+            Powrót na strone główną
+            </button>
+          </a>
+</div>
+    
+<footer id="zegarek"></footer>
+
+<script>
+
+    window.onload = function losuj(){
+            var ogn=Math.floor(Math.random()*101);
+            losowa=ogn;
+            proba=0;
+            wygrane=0
+            
+        }
+        const liczbymniejsze = new Array();
+        const liczbywieksze = new Array();
+        function sprawdz(){
+            proba++;
+            var odp=document.getElementById("n").value;
+            if(odp=="")
+            document.getElementById("sprawdzanie").innerHTML="wpisz odpowiedz";
+            else if(losowa==odp){
+                wygrane++;
+                document.getElementById("sprawdzanie").innerHTML="dobrze!!";
+                document.getElementById("proby").innerHTML="Ilość prób: "+proba;
+                document.getElementById("zgadniecie").innerHTML="&lt; "+odp+" &lt;";
+                document.getElementById("wygrane").innerHTML="ilość wygranych: "+wygrane;
+            }
+            else if(losowa>odp){
+                document.getElementById("sprawdzanie").innerHTML="nie!! Twoja liczba jest mniejsza";
+                document.getElementById("proby").innerHTML="Ilość prób: "+proba;
+                liczbymniejsze[liczbymniejsze.length] = odp;
+                liczbymniejsze.sort();
+                document.getElementById("zgadnieciamniejsze").innerHTML= liczbymniejsze;
+                
+                
+            }
+            else {
+                document.getElementById("sprawdzanie").innerHTML="nie!! Twoja liczba jest większa";
+                document.getElementById("proby").innerHTML="Ilość prób: "+proba;
+                liczbywieksze[liczbywieksze.length] = odp;
+                liczbywieksze.sort();
+                document.getElementById("zgadnieciawieksze").innerHTML= liczbywieksze;
+                
+                
+            }
+        }
+
+        function reset(){
+            ogn=Math.floor(Math.random()*101);
+            losowa=ogn;
+            proba=0;
+            document.getElementById("sprawdzanie").innerHTML="<br>";
+            document.getElementById("proby").innerHTML="ilość prób: ";
+            document.getElementById("zgadnieciawieksze").innerHTML=" ";
+            document.getElementById("zgadnieciamniejsze").innerHTML=" ";
+            document.getElementById("zgadniecie").innerHTML="&lt; ? &lt;";
+            liczbymniejsze.length=0;
+            liczbywieksze.length=0;
+        }
+
+
+    function zegar() {
+      var data = new Date();
+      var godzina = data.getHours();
+      var min = data.getMinutes();
+      var sek = data.getSeconds();
+      var terazjest = ""+godzina+
+      ((min<10)?":0":":")+min+
+      ((sek<10)?":0":":")+sek;
+      document.getElementById("zegarek").innerHTML = terazjest;
+      setTimeout("zegar()", 1000);
+    }
+    zegar();
+    
+    /*for(i=0;i<liczbymniejsze.length;i++;){
+        if (liczbymniejsze[i]===odp)
+            document.getElementById("sprawdzanie").innerHTML="liczba została już podana";
+            }
+            */
+    </script>
+</body>
+</html>
+

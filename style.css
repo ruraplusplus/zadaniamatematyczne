@@ -1,0 +1,46 @@
+body{
+    background-image: url(https://previews.123rf.com/images/iunewind/iunewind1403/iunewind140300080/26576794-vector-number-background.jpg);
+}
+
+#main{
+    background-color: rgb(240, 143, 143);
+    text-align: center;
+    padding: 50px;
+    margin-top:10%;
+    margin-bottom: 5%;
+    margin-left: 20%;
+    margin-right:20%;
+    border-radius: 50px;
+    border: 15px solid rgb(218, 109, 109);
+}
+
+table{
+    margin-left: auto;
+  margin-right: auto;
+}
+
+
+footer{
+    text-align: center;
+    font-size: 50px;
+    color:  rgb(218, 109, 109);
+    
+}
+#jed{
+    background-color: rgb(255, 114, 114);
+}
+#dwa{
+    background-color: rgb(246, 191, 88);
+}
+#trz{
+    background-color: rgb(251, 251, 119);
+}
+#czt{
+    background-color: rgb(129, 255, 129);
+}
+#pie{
+    background-color: rgb(126, 126, 255);
+}
+button{
+    background-color: rgb(218, 109, 109);
+}

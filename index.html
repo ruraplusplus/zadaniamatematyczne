@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zadania</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="main">
+    <h1>☆ Zadania!! ☆</h1>
+    <h3>wybierz zadanie:</h3>
+    <p>
+        dodawanie liczb do 100 - 
+        <a href="1.html">
+        <button id="jed">
+        Zadanie 1.
+        </button>
+        </a>
+        </p>
+    
+    <p>
+        odejmowanie liczb do 100
+        <a href="2.html">
+            <button id="dwa">
+            Zadanie 2.
+            </button>
+          </a>
+        </p>
+
+    <p>
+        dzielenie liczb do 100
+        <a href="3.html">
+            <button id="trz">
+            Zadanie 3.
+            </button>
+          </a>
+        </p>
+
+    <p>
+        mnożenie liczb do 100
+        <a href="4.html">
+            <button id="czt">
+            Zadanie 4.
+            </button>
+          </a>
+        </p>
+    
+    <p>
+        gra!!
+        <a href="5.html">
+            <button id="pie">
+            Zadanie 5.
+            </button>
+          </a>
+        </p>
+
+    
+</div>
+    
+<footer id="zegarek"></footer>
+
+<script>
+    function zegar() {
+      var data = new Date();
+      var godzina = data.getHours();
+      var min = data.getMinutes();
+      var sek = data.getSeconds();
+      var terazjest = ""+godzina+
+      ((min<10)?":0":":")+min+
+      ((sek<10)?":0":":")+sek;
+      document.getElementById("zegarek").innerHTML = terazjest;
+      setTimeout("zegar()", 1000);
+    }
+    zegar();
+    </script>
+</body>
+</html>

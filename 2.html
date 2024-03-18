@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zadanie 2</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="main">
+    <h1>Zadanie 2.</h1>
+    <h2>odejmowanie liczb do 100</h2>
+    <button onclick="losuj()">wylosuj liczby</button>
+    <p id="a"><br></p>
+    <p>-</p>
+    <p id="b"><br></p>
+    <p>=</p>
+    <input id="d" type="number"><br><br>
+    <button onclick="sprawdz()">sprawdz</button>
+    <p id="e"><br></p>
+    <button onclick="reset()">Zresetuj</button>
+    <a href="index.html">
+        <button id="powrot">
+        Powrót na strone główną
+        </button>
+      </a>
+</div>
+    
+<footer id="zegarek"></footer>
+
+<script>
+
+function losuj(){
+            do{
+                a=Math.floor(Math.random()*101);
+                b=Math.floor(Math.random()*101);
+            }
+            while(b>a);
+            document.getElementById("a").innerHTML=a;
+            document.getElementById("b").innerHTML=b;
+            document.getElementById("c").innerHTML=a-b;
+        }
+
+        function sprawdz(){
+            d=document.getElementById("d").value;
+            if(d=="")
+            document.getElementById("e").innerHTML="wpisz odpowiedz";
+            else if(d==a-b)
+            document.getElementById("e").innerHTML="dobrze!! :D";
+        else
+        document.getElementById("e").innerHTML="źle :<";
+        }
+
+        function reset(){
+            document.getElementById("a").innerHTML="<br>";
+            document.getElementById("b").innerHTML="<br>";
+            document.getElementById("d").innerHTML=" ";
+            document.getElementById("e").innerHTML="<br>";
+        }
+
+
+    function zegar() {
+      var data = new Date();
+      var godzina = data.getHours();
+      var min = data.getMinutes();
+      var sek = data.getSeconds();
+      var terazjest = ""+godzina+
+      ((min<10)?":0":":")+min+
+      ((sek<10)?":0":":")+sek;
+      document.getElementById("zegarek").innerHTML = terazjest;
+      setTimeout("zegar()", 1000);
+    }
+    zegar();
+    
+    </script>
+</body>
+</html>
